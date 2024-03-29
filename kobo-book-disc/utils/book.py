@@ -6,7 +6,7 @@ class Book:
         self.discount = discount
 
     def __repr__(self) -> str:
-        s = f"{self.title} {self.price}({self.discount}%)"
+        s = f"{self.title} ${self.price}({self.discount}%)"
         return s
 
     def __gt__(self, b):

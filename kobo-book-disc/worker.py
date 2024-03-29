@@ -1,6 +1,6 @@
 import requests
 from app import app
-from utils.helper import discount_calculator
+from utils.helper import extract_price, discount_calculator
 from utils.book import Book
 
 
@@ -25,7 +25,9 @@ class Worker:
             self.total_pages = data.get("TotalNumPages")
             for d in data.get("Items", []):
                 if d["WasPrice"] is not None:
-                    results.append(Book(d["Title"], d["Price"], discount_calculator(d["Price"], d["WasPrice"])))
+                    results.append(Book(d["Title"], extract_price(d["Price"]), discount_calculator(d["Price"], d["WasPrice"])))
+                elif app.settings.show_all:
+                    results.append(Book(d["Title"], extract_price(d["Price"]), 0))
         else:
             app.logger.error(f"Request error {r.status_code}")
 

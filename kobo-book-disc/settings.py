@@ -21,4 +21,6 @@ class Settings:
             app.logger.error("KOBO_SESSION is None")
             raise SettingsError("KOBO_SESSION is None")
 
+        self.sort = "price"
+        self.show_all = False
         self.kobo_cookies = "KoboSession=" + os.environ.get("KOBO_SESSION")

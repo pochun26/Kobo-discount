@@ -1,13 +1,15 @@
 # Kobo Discount
 
-## Discount
+## About this tool
 A tool helps you get books with discounts in your wishlist
 
 ## Usage
-1. Find KoboSession in your cookies, set it into enviroment variable KOBO_SESSION
+1. Find the KoboSession in your cookies, set it into environment variable KOBO_SESSION
+   ```shell
+   export KOBO_SESSION=<your session id>
+   ```
 2. python3 kobo-book-disc
 
 
 ### TODO
-- Books order by discount
-- Can I add / remove wishlist by this tools?
+- Can I add / remove book in wishlist by request?
