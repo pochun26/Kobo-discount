@@ -25,6 +25,10 @@ def main():
     for f in futures:
         books.extend(f.result())
 
+    if not books:
+        app.logger.info("Book list is empty")
+        return
+
     sort_books(books)
     log_books(books)
 
